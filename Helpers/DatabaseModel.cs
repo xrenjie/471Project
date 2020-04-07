@@ -392,7 +392,7 @@ namespace ProjectTemp.Helpers
 
         public int updateMedicalHistory(int patientID, string medicalHistory)
         {
-            MySqlParameter[] Params = new MySqlParameter[5];
+            MySqlParameter[] Params = new MySqlParameter[2];
             Params[0] = new MySqlParameter("@patientID", patientID);
             Params[1] = new MySqlParameter("@medicalHistory", medicalHistory);
             return Execute_Non_Query_Store_Procedure("CALL updateMedicalHistory(@patientID, @medicalHistory)", Params);
@@ -400,7 +400,7 @@ namespace ProjectTemp.Helpers
 
         public int updatePatientInfo(int patientID, string firstName, string lastName, string sex, string address, int SSN, int height, int weight, string bloodType)
         {
-            MySqlParameter[] Params = new MySqlParameter[10];
+            MySqlParameter[] Params = new MySqlParameter[9];
             Params[0] = new MySqlParameter("@patientID", patientID);
             Params[1] = new MySqlParameter("@firstName", firstName);
             Params[2] = new MySqlParameter("@lastName", lastName);

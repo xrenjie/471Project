@@ -45,7 +45,7 @@ namespace ProjectTemp.Controllers
 
             DataTable staff = dbm.getHospitalStaff();
             int length = staff.Rows.Count;
-            string[,] result = new string[staff.Rows.Count,11];
+            string[,] result = new string[staff.Rows.Count,10];
             int count = 0;
             foreach (DataRow row in staff.Rows)
             {
@@ -58,8 +58,7 @@ namespace ProjectTemp.Controllers
                 result[count,6] = "SSN: " + staff.Rows[count][6].ToString();
                 result[count,7] = "clockIn: " + staff.Rows[count][7].ToString();
                 result[count,8] = "clockOut: " + staff.Rows[count][8].ToString();
-                result[count,9] = "daysPerWeek: " + (string)staff.Rows[count][9];
-                result[count,10] = "employeeType: " + (string)staff.Rows[count++][10];
+                result[count,9] = "daysPerWeek: " + (string)staff.Rows[count++][9];
             }
             return result;
         }
@@ -234,7 +233,7 @@ namespace ProjectTemp.Controllers
         [Route("UpdatePatientInfo")]
         public int UpdatePatientInfo(int patientID, string firstName, string lastName, string sex, string address, int SSN, int height, int weight, string bloodType)
         {
-            return UpdatePatientInfo(patientID, firstName, lastName, sex, address, SSN, height, weight, bloodType);
+            return dbm.updatePatientInfo(patientID, firstName, lastName, sex, address, SSN, height, weight, bloodType);
         }
     }
 }
